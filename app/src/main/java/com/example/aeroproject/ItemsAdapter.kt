@@ -5,26 +5,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.aeroproject.databinding.ItemInListBinding
 
-class ItemsAdapter (var items: List<ItemDB>, var context: Context): RecyclerView.Adapter<ItemsAdapter.MyViewHolder>() {
-    class MyViewHolder(view: View):RecyclerView.ViewHolder(view){
-        val textView2: TextView = view.findViewById(R.id.textView2)
-        val textView3: TextView = view.findViewById(R.id.textView3)
-        val textView4: TextView = view.findViewById(R.id.textView4)
-        val textView5 :TextView = view.findViewById(R.id.textView5)
-        val textView6: TextView = view.findViewById(R.id.textView6)
-        val textView7: TextView = view.findViewById(R.id.textView7)
-        val textView8: TextView = view.findViewById(R.id.textView8)
-        val textView9: TextView = view.findViewById(R.id.textView9)
-        val textView10: TextView = view.findViewById(R.id.textView10)
-
-
-
+class ItemsAdapter (var items: List<ItemDB>): RecyclerView.Adapter<ItemsAdapter.MyViewHolder>() {
+    class MyViewHolder(val binding: ItemInListBinding):RecyclerView.ViewHolder(binding.root){
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_in_list,parent,false)
-        return MyViewHolder(view)
+        val binding = ItemInListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return MyViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
@@ -32,15 +21,16 @@ class ItemsAdapter (var items: List<ItemDB>, var context: Context): RecyclerView
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.textView2.text = items[position].cityFrom
-        holder.textView3.text = items[position].cityTo
-        holder.textView4.text = items[position].dateFrom
-        holder.textView5.text = items[position].dateTo
-        holder.textView6.text = items[position].timeFrom
-        holder.textView7.text = items[position].timeTo
-        holder.textView8.text = items[position].portFrom
-        holder.textView9.text = items[position].portTo
-        holder.textView10.text = items[position].travelTime.toString()
+        holder.binding.textView2.text = items[position].cityFrom
+        holder.binding.textView2.text = items[position].cityFrom
+        holder.binding.textView3.text = items[position].cityTo
+        holder.binding.textView4.text = items[position].dateFrom
+        holder.binding.textView5.text = items[position].dateTo
+        holder.binding.textView6.text = items[position].timeFrom
+        holder.binding.textView7.text = items[position].timeTo
+        holder.binding.textView8.text = items[position].portFrom
+        holder.binding.textView9.text = items[position].portTo
+        holder.binding.textView10.text = items[position].travelTime.toString()
 
     }
 }

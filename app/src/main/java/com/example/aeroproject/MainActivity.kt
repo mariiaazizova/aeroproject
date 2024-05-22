@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
             "15:00","16:00","Пулково","Домодедово",1.0))
         items.add(ItemDB("Санкт-Петербург","Оренбург","01.07.2024","01.07.2024","17:00","19:50","Пулково","аэропорт им. Гагарина",2.5))
         itemsList.layoutManager = LinearLayoutManager(this)
-        itemsList.adapter = ItemsAdapter(items, this)
+        itemsList.adapter = ItemsAdapter(items)
 
     }
 }
